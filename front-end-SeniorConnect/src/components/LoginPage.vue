@@ -1,6 +1,5 @@
 <template>
   <div class="login-page">
-    <nav-bar />
     <main class="main-content">
       <div class="form-container">
         <div class="form-card">
@@ -18,7 +17,7 @@
 
           <p class="signup-prompt">
             <span>Don't have an account? </span>
-            <a href="#" class="signup-link">Create Account</a>
+            <router-link to="/signup" class="signup-link">Create Account</router-link>
           </p>
         </div>
       </div>
@@ -27,14 +26,12 @@
 </template>
 
 <script>
-import NavBar from "./NavBar.vue";
 import LoginForm from "./LoginForm.vue";
 import ForgotPasswordForm from "./ForgotPasswordForm.vue";
 
 export default {
   name: "LoginPage",
   components: {
-    NavBar,
     LoginForm,
     ForgotPasswordForm,
   },

@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import SeniorConnectLanding from "./SeniorConnectLanding.vue";
-import NavBar from "./NavBar.vue";
-import HeroSection from "./HeroSection.vue";
-import HowItWorksSection from "./HowItWorksSection.vue";
-import BenefitsSection from "./BenefitsSection.vue";
+import SeniorConnectLanding from "../SeniorConnectLanding.vue";
+import HomePageNavBar from "./HomePageNavBar.vue";
+import HeroSection from "../HeroSection.vue";
+import HowItWorksSection from "../HowItWorksSection.vue";
+import BenefitsSection from "../BenefitsSection.vue";
 
 // Mock the child components to simplify testing
-vi.mock("./NavBar.vue", () => ({
+vi.mock("./HomePageNavBar.vue", () => ({
   default: {
     name: "NavBar",
     render: () => null,
@@ -45,7 +45,7 @@ describe("SeniorConnectLanding", () => {
     const wrapper = mount(SeniorConnectLanding);
 
     // Check that all child components are included
-    expect(wrapper.findComponent(NavBar).exists()).toBe(true);
+    expect(wrapper.findComponent(HomePageNavBar).exists()).toBe(true);
     expect(wrapper.findComponent(HeroSection).exists()).toBe(true);
     expect(wrapper.findComponent(HowItWorksSection).exists()).toBe(true);
     expect(wrapper.findComponent(BenefitsSection).exists()).toBe(true);

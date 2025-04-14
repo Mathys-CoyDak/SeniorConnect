@@ -1,16 +1,15 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect, vi } from "vitest";
-import LoginPage from "./LoginPage.vue";
-import LoginForm from "./LoginForm.vue";
-import ForgotPasswordForm from "./ForgotPasswordForm.vue";
-import NavBar from "./NavBar.vue";
+import LoginPage from "../LoginPage.vue";
+import LoginForm from "../LoginForm.vue";
+import ForgotPasswordForm from "../ForgotPasswordForm.vue";
 
 describe("LoginPage", () => {
   it("renders correctly", () => {
     const wrapper = mount(LoginPage);
 
-    // Check if NavBar is rendered
-    expect(wrapper.findComponent(NavBar).exists()).toBe(true);
+    // Check if HomePageNavBar is rendered
+    expect(wrapper.findComponent(HomePageNavBar).exists()).toBe(true);
 
     // Check if LoginForm is rendered by default
     expect(wrapper.findComponent(LoginForm).exists()).toBe(true);

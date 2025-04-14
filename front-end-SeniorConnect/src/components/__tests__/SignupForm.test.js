@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect, vi } from "vitest";
-import SignupForm from "./SignupForm.vue";
-import UserTypeSelector from "./UserTypeSelector.vue";
-import FormInput from "./FormInput.vue";
-import PasswordInput from "./PasswordInput.vue";
+import SignupForm from "../SignupForm.vue";
+import UserTypeSelector from "../UserTypeSelector.vue";
+import FormInput from "../FormInput.vue";
+import PasswordInput from "../PasswordInput.vue";
 
 // Mock console.log to verify form submission
 console.log = vi.fn();

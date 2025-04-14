@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect, vi } from "vitest";
-import ForgotPasswordForm from "./ForgotPasswordForm.vue";
+import ForgotPasswordForm from "../ForgotPasswordForm.vue";
 
 describe("ForgotPasswordForm", () => {
   it("renders correctly", () => {

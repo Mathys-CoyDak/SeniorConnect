@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect, vi } from "vitest";
-import LoginForm from "./LoginForm.vue";
+import LoginForm from "../LoginForm.vue";
 
 describe("LoginForm", () => {
   it("renders correctly", () => {
