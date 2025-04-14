@@ -1,4 +1,4 @@
-package com.seniorconnect.senior;
+package com.portail.seniors.Senior;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
