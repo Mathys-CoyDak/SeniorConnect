@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import SeniorConnectApp from '@/components/SeniorConnectApp.vue'
 import SignupForm from '@/components/SignupForm.vue'
+import LoginPage from "@/components/LoginPage.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -13,6 +14,11 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignupForm,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginPage,
     },
   ],
 })

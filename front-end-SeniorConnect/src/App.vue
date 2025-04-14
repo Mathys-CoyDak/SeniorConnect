@@ -1,14 +1,10 @@
 <template>
   <div id="app">
-    <nav>
-      <GlobalNavBar></GlobalNavBar>
-    </nav>
     <router-view />
   </div>
 </template>
 
 <script setup>
-import GlobalNavBar from './components/GlobalNavBar.vue'
 </script>
 
 <style scoped>
