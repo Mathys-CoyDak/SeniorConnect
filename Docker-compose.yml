@@ -11,9 +11,11 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - seniorconnect-network
 
   backend:
-    build: .
+    build: ./backend-SeniorConnect
     container_name: springboot_senior
     ports:
       - "8080:8080"
@@ -24,6 +26,22 @@ services:
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: pass
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - seniorconnect-network
+
+  frontend:
+    build: ./front-end-SeniorConnect
+    container_name: vuejs_senior
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - seniorconnect-network
 
 volumes:
   mysql_data:
+
+networks:
+  seniorconnect-network:
+    driver: bridge
