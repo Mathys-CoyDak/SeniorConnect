@@ -1,0 +1,29 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql_senior
+    environment:
+      MYSQL_DATABASE: portail_senior
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build: .
+    container_name: springboot_senior
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/portail_senior
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: pass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+volumes:
+  mysql_data:
