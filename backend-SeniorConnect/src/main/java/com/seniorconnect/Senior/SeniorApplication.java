@@ -1,4 +1,4 @@
-package com.portail.seniors.Senior;
+package com.seniorconnect.Senior;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
