@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS portail_senior;
+    USE portail_senior;
+
 CREATE TABLE Utilisateurs (
                               id INT AUTO_INCREMENT PRIMARY KEY,
                               prenom VARCHAR(50) NOT NULL,
