@@ -1,33 +1,29 @@
 package com.seniorconnect.service;
 
-import com.seniorconnect.entity.Utilisateur;
-import com.seniorconnect.repository.UtilisateurRepository;
-import org.springframework.security.core.userdetails.User;
+import com.seniorconnect.model.User;
+import com.seniorconnect.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-
 @Service
+@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UtilisateurRepository utilisateurRepository;
-
-    public CustomUserDetailsService(UtilisateurRepository utilisateurRepository) {
-        this.utilisateurRepository = utilisateurRepository;
-    }
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Utilisateur utilisateur = utilisateurRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé avec l'email : " + email));
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé avec cet email : " + email));
 
-        return new User(
-                utilisateur.getEmail(),
-                utilisateur.getMotDePasse(),
-                Collections.emptyList() // Rôles à implémenter si nécessaire
-        );
+        // Retourner un UserDetails Spring Security
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getEmail())
+                .password(user.getPassword()) // Attention : le mot de passe doit déjà être encodé (BCrypt)
+                .roles(user.getUserType().name())
+                .build();
     }
 }
