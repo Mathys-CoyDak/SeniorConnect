@@ -16,7 +16,7 @@ public class ProfilRecruteur {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "id_utilisateur", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "email_utilisateur", referencedColumnName = "email", nullable = false)
     private User user;
 
     private String entreprise;

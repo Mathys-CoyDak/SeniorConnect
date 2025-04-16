@@ -31,10 +31,12 @@ public class AuthController {
         // Encoder le mot de passe avant l'enregistrement
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        // Enregistrement de l'utilisateur
+        // Enregistrement de l'utilisateur (logique inclut déjà la création d'un profil si SENIOR)
         userService.saveUser(user);
+
         return ResponseEntity.ok("Utilisateur enregistré avec succès !");
     }
+
 
 
     @PostMapping("/login")
