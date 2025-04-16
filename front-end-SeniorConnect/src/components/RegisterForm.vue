@@ -211,7 +211,7 @@
             </div>
             <div class="form-group">
               <label for="confirmPassword" class="form-label"
-                >Confirm Password</label
+              >Confirm Password</label
               >
               <div class="input-group">
                 <i class="bi bi-lock input-icon"></i>
@@ -358,8 +358,9 @@ function togglePasswordVisibility() {
   display: flex;
   flex-direction: column;
   padding-top: 100px;
-
 }
+
+
 /* Main content styles */
 .main-content {
   flex: 1;
