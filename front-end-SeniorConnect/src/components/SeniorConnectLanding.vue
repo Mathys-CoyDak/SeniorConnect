@@ -11,12 +11,6 @@
         <router-link to="/login" class="nav-link">Connexion</router-link>
         <router-link to="/about" class="nav-link">À propos</router-link>
       </div>
-
-      <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon">
-          <path d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
     </div>
 
     <div v-show="isMenuOpen" class="mobile-menu">
