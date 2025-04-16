@@ -1,4 +1,18 @@
 <template>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <img src="" alt="Logo" class="logo-image" />
+        <span class="logo-text">SeniorConnect</span>
+      </div>
+
+      <div class="navbar-links">
+        <router-link to="/signup" class="nav-link">Inscription</router-link>
+        <router-link to="/login" class="nav-link">Connexion</router-link>
+        <router-link to="/about" class="nav-link">À propos</router-link>
+      </div>
+    </div>
+  </nav>
   <div class="login-page">
     <main class="main-content">
       <div class="form-container">

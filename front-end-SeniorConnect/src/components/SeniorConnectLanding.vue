@@ -12,12 +12,6 @@
         <router-link to="/about" class="nav-link">À propos</router-link>
       </div>
     </div>
-
-    <div v-show="isMenuOpen" class="mobile-menu">
-      <router-link to="/signup" class="mobile-nav-link">Inscription</router-link>
-      <router-link to="/login" class="mobile-nav-link">Connexion</router-link>
-      <button class="mobile-sign-in-button">Sign In</button>
-    </div>
   </nav>
   <div class="senior-connect-landing">
     <HeroSection />

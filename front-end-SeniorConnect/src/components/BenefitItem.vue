@@ -2,23 +2,23 @@
   <div class="benefit-item">
     <div class="benefit-icon">
       <i
-          v-if="icon === 'check'"
-          class="bi bi-check-lg"></i>
+        v-if="icon === 'check'"
+        class="bi bi-check-lg"></i>
       <i
-          v-else-if="icon === 'clock'"
-          class="bi bi-clock"></i>
+        v-else-if="icon === 'clock'"
+        class="bi bi-clock"></i>
       <i
-          v-else-if="icon === 'chat'"
-          class="bi bi-chat-dots"></i>
+        v-else-if="icon === 'chat'"
+        class="bi bi-chat-dots"></i>
       <i
-          v-else-if="icon === 'briefcase'"
-          class="bi bi-briefcase"></i>
+        v-else-if="icon === 'briefcase'"
+        class="bi bi-briefcase"></i>
       <i
-          v-else-if="icon === 'check-circle'"
-          class="bi bi-check-circle"></i>
+        v-else-if="icon === 'check-circle'"
+        class="bi bi-check-circle"></i>
       <i
-          v-else-if="icon === 'money'"
-          class="bi bi-cash-coin"></i>
+        v-else-if="icon === 'money'"
+        class="bi bi-cash-coin"></i>
     </div>
     <div class="benefit-content">
       <h3 class="benefit-title">{{ title }}</h3>
@@ -27,7 +27,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: "BenefitItem",
@@ -35,15 +34,14 @@ export default {
     icon: {
       type: String,
       required: true,
-      validator: (value) =>
-        [
-          "check",
-          "clock",
-          "chat",
-          "briefcase",
-          "check-circle",
-          "money",
-        ].includes(value),
+      validator: (value) => [
+        "check",
+        "clock",
+        "chat",
+        "briefcase",
+        "check-circle",
+        "money",
+      ].includes(value),
     },
     title: {
       type: String,
@@ -75,9 +73,8 @@ export default {
   flex-shrink: 0;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
+.benefit-icon .bi {
+  font-size: 24px;
   color: white;
 }
 

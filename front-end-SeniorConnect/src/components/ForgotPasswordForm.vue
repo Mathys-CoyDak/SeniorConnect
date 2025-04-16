@@ -24,21 +24,8 @@
           required
           aria-required="true"
         />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="input-icon"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
+        <!-- Remplacement de SVG par l'icône Bootstrap -->
+        <i class="bi bi-envelope input-icon" aria-hidden="true"></i>
       </div>
     </div>
 
@@ -103,6 +90,39 @@ export default {
 .reset-description {
   font-size: 16px;
   color: #666666;
+}
+
+.form-group {
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  font-size: 16px;
+  padding: 16px;
+  padding-left: 48px; /* Adjusted for the new icon */
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4318d1;
+}
+
+.input-icon {
+  font-size: 1.5rem; /* Taille normalisée */
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666666; /* Couleur par défaut */
 }
 
 .button-group {
