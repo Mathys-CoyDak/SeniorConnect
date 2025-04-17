@@ -26,6 +26,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    private String phone;
+
     @Enumerated(EnumType.STRING) // Spécifie que l'énumération sera stockée sous forme de chaîne
     private UserType userType; // Le type d'utilisateur (SENIOR ou RECRUITER)
 
