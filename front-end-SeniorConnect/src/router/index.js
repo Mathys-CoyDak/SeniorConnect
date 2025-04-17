@@ -22,5 +22,12 @@ const router = createRouter({
     },
   ],
 })
-
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = localStorage.getItem("jwtToken") !== null;
+  if (to.name === "login" && isLoggedIn) {
+    next({ name: "home" }); // Redirection vers l'accueil si connecté
+  } else {
+    next();
+  }
+});
 export default router

@@ -67,10 +67,16 @@
     >
       Sign In
     </button>
+    <div v-if="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
   </form>
 </template>
 
 <script>
+import axios from "@/services/axios";
+
 export default {
   name: "LoginForm",
   data() {
@@ -80,6 +86,7 @@ export default {
         email: "",
         password: "",
       },
+      errorMessage: "", // Gérer les erreurs du login
     };
   },
   computed: {
@@ -91,10 +98,22 @@ export default {
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
     },
-    handleSubmit() {
-      if (this.isFormValid) {
-        console.log("Form submitted", this.formData);
-        // Here you would typically call an API to authenticate the user
+    async handleSubmit() {
+      if (!this.isFormValid) {
+        return;
+      }
+
+      try {
+        const response = await axios.post("/api/auth/login", this.formData); // Requête vers l'API backend
+        const token = response.data; // Le token JWT est retourné
+        localStorage.setItem("jwtToken", token); // Stocker le token dans localStorage
+        this.$router.push("/"); // Rediriger l'utilisateur sur la page d'accueil après le succès
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          this.errorMessage = "Email ou mot de passe incorrect.";
+        } else {
+          this.errorMessage = "Une erreur interne est survenue. Réessayez plus tard.";
+        }
       }
     },
   },
@@ -214,5 +233,11 @@ export default {
 .submit-button.disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.error-message {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 </style>
